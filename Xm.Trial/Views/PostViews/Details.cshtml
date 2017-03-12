@@ -1,0 +1,27 @@
+﻿@model Xm.Trial.Models.PostViewDetailsViewModel
+
+<div class="table-responsive">
+    <table class="table table-striped ">
+        <tr>
+            <th>Detail</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>@Model.Post.Title</td>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>@Model.Post.Id</td>
+        </tr>
+        <tr>
+            <td>Likes count</td>
+            <td>@Model.Post.Likes</td>
+        </tr>
+        <tr>
+            <td>Ref URLs</td>
+            <td><span style="white-space: pre-line">@string.Join("\n", Model.PostViews.Select(pv => pv.RefUrl))</span></td>
+        </tr>
+    </table>
+</div>
+

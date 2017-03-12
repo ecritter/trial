@@ -1,0 +1,39 @@
+﻿<!doctype html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="~/Content/js/lib/jquery.validate.unobtrusive.bootstrap.min.js"></script>
+<script src="~/Content/js/lib/moment.min.js"></script>
+<script src="~/Content/js/lib/bootstrap-sortable.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    
+    @Styles.Render("~/Content/bundles/css")
+</head>
+<body>
+
+	@Html.Partial("LoginStatus")
+	@Html.Partial("Menu")
+	
+	<main>
+		@RenderBody()
+	</main>
+
+    <footer>
+        <div class="col-sm-8">
+            <small>
+                Copyright © @DateTime.UtcNow.Year blog. All rights reserved
+            </small>
+        </div>
+    </footer>
+    
+    @Scripts.Render("~/Content/bundles/js")
+</body>
+</html>

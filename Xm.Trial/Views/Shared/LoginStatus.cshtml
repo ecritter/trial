@@ -1,0 +1,17 @@
+﻿<div class="clearfix">
+@if (User.Identity.IsAuthenticated)
+{
+    <span class="bg-primary">Hi @User.Identity.Name</span>
+    <a href="@Url.Action("Logout", "Account")" class="btn btn-success pull-right">
+        Logout
+        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+    </a>
+}
+else
+{
+    <a href="@Url.Action("Login", "Account")" class="btn btn-success pull-right">
+        Login with G+
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    </a>
+    }
+</div>

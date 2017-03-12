@@ -1,0 +1,47 @@
+﻿<div id="container"></div>
+<div id="progress" style="display:none">
+    <h4>Loading...</h4>
+</div>
+
+<script type="text/javascript">
+
+    var pageIndex = 0;
+    var inProgress = false;
+
+    $(document).ready(function () {
+        GetData();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= $(document).height() - 
+            $(window).height() - 100 && !inProgress) {
+                GetData();
+            }
+        });
+    });
+
+    function GetData() {
+        inProgress = true;
+        $.ajax({
+            type: 'GET',
+            url: '/Blog/Posts?offset=' + pageIndex.toString(),
+            success: function (data) {
+                if (data) {
+                    inProgress = false;
+                    pageIndex++;
+                    $("#container").append(data);
+                }
+            },
+            beforeSend : function () {
+                $("#progress").show();
+            },
+            complete : function () {
+                $("#progress").hide();
+            },
+            error: function () {
+                alert("Error while retrieving data!");
+            }
+        });
+    }
+</script>
+
+
+

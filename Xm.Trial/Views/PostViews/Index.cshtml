@@ -1,0 +1,30 @@
+﻿@model Xm.Trial.Models.PostViewsViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped sortable">
+        <thead class="thead-inverse">
+            <tr style="cursor: pointer;">
+                <th>Title</th>
+                <th>Likes</th>
+                <th>Views</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var postView in Model.PostViews)
+            {
+                var detailsUrl = Url.Action("Details", new RouteValueDictionary { ["id"] = postView.PostId });
+
+                <tr>
+                    <td><a href="@detailsUrl">@postView.Title</a></td>
+                    <td>@postView.Likes</td>
+                    <td>@postView.Views</td>
+                </tr>
+            }
+        </tbody>
+</table>
+</div>
+
+

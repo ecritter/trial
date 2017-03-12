@@ -1,0 +1,22 @@
+﻿@model Xm.Trial.Models.PostSnippetViewModel[]
+
+@foreach (var post in Model)
+{
+    var detailsUrl = Url.Action("Details", new RouteValueDictionary { ["id"] = post.Id });
+    <div class="col-sm-8">
+        <article>
+            <header>
+                <h3><a href="@detailsUrl">@post.Title</a></h3>
+                @Html.Partial("PostMeta", post)
+            </header>
+
+            <a href="@detailsUrl">
+                <figure>
+                    <img src="@post.Picture" alt="@post.Title">
+                    <figcaption>@post.PictureCaption</figcaption>
+                </figure>
+            </a>
+            <p>@post.Snippet</p>
+        </article>
+    </div>
+    }
